@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Neeraj Kumar Meena</title>
+    <description>Notes on systems, cloud native tooling, and things I build to understand them.</description>
+    <link>/blog/</link>
+    <item>
+      <title>I kept nodding along in CDN meetings. So I built a tiny one on my laptop.</title>
+      <link>/blog/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop/</link>
+      <pubDate>Wed, 22 Jul 2026 04:56:55 +0000</pubDate>
+      <category>Medium</category>
+      <description>Someone would say “cache miss” or “purge the edge” or “origin is fine,” and I would nod like I was in on it. Later, alone, I would open another blog post, skim a Cloudflare…</description>
+    </item><item>
+      <title>Why Default Container Networks Fail in Production (and How to Fix It)</title>
+      <link>/blog/why-default-container-networks-fail-in-production-and-how-to-fix-it/</link>
+      <pubDate>Thu, 11 Jun 2026 19:31:54 +0000</pubDate>
+      <category>Medium</category>
+      <description>When you are first building and testing a containerized application, your primary goal is simple: get the containers to talk to each other. You spin up a backend API container,…</description>
+    </item><item>
+      <title>Why Tech Events Are 10x Better Than Watching Movies on Weekends</title>
+      <link>/blog/why-tech-events-are-10x-better-than-watching-movies-on-weekends/</link>
+      <pubDate>Fri, 27 Feb 2026 20:52:53 +0000</pubDate>
+      <category>Medium</category>
+      <description>We all know the Saturday morning feeling. You have had a long week of work or classes, and the easiest thing to do is stay in bed, watching netflix. It is passive, it is…</description>
+    </item><item>
+      <title>Exploring reality of building microservice architecture: A gRPC and NATS (complete POC)</title>
+      <link>/blog/microservices-poc-with-grpc-and-nats/</link>
+      <pubDate>Thu, 22 Jan 2026 18:30:00 +0000</pubDate>
+      <category>Hashnode</category>
+      <description>What I learned building MicroBuf, a small gRPC + NATS experiment that taught me more than 6 months of reading Medium posts</description>
+    </item><item>
+      <title>My MacBook M2 Journey: Why I Upgraded &amp; 3 Must-Have Accessories</title>
+      <link>/blog/my-macbook-m2-journey-why-i-upgraded-and-3-must-have-accessories/</link>
+      <pubDate>Fri, 23 May 2025 05:08:36 +0000</pubDate>
+      <category>Hashnode</category>
+      <description>Ready to elevate your MacBook M2 experience? Here’s why I made the switch and the three accessories that transformed my workflow.</description>
+    </item><item>
+      <title>React vs VITE - Understanding When to Choose React or Vite and Why It&#x27;s Important</title>
+      <link>/blog/react-vs-vite-understanding-when-to-choose-react-or-vite-and-why-its-important/</link>
+      <pubDate>Mon, 02 Dec 2024 05:51:38 +0000</pubDate>
+      <category>Hashnode</category>
+      <description>If you enjoy building websites or apps, you’ve probably heard about React and Vite . Both are great tools, but they do different things. So, when should you use React, and when…</description>
+    </item><item>
+      <title>How to Build a simple C++ project in 10 mins?</title>
+      <link>/blog/how-to-build-a-simple-c-project-in-10-mins/</link>
+      <pubDate>Sat, 06 Jul 2024 18:57:14 +0000</pubDate>
+      <category>Hashnode</category>
+      <description>Exploring Basic C++ Programming with calC</description>
+    </item><item>
+      <title>Understanding the React Code Flow and directory structure - neerajmeena7</title>
+      <link>/blog/understanding-the-react-code-flow-and-directory-structure-neerajmeena7/</link>
+      <pubDate>Sun, 30 Jun 2024 21:40:46 +0000</pubDate>
+      <category>Hashnode</category>
+      <description>React is a SPA (single-page application), a JavaScript library for building interactive UI for a webpage and It&#x27;s a component-based architecture with reusability and efficient…</description>
+    </item><item>
+      <title>Web Development’s Explosive Rise in 2023: Unveiling the Leading Tech Stacks (MongoDB, Nodejs…</title>
+      <link>/blog/web-developments-explosive-rise-in-2023-unveiling-the-leading-tech-stacks-mongodb-nodejs/</link>
+      <pubDate>Wed, 16 Aug 2023 19:13:46 +0000</pubDate>
+      <category>Medium</category>
+      <description>Web development is booming in 2023, and there are a few reasons why. Businesses want to be online, more people are shopping online, and mobile devices are a big deal. This article…</description>
+    </item><item>
+      <title>ChatGPT Tutorial Made Easy: A Beginner’s Guide to Conversational AI</title>
+      <link>/blog/chatgpt-tutorial-made-easy-a-beginners-guide-to-conversational-ai/</link>
+      <pubDate>Fri, 07 Jul 2023 19:45:16 +0000</pubDate>
+      <category>Medium</category>
+      <description>Conversational AI has become a buzzword in the tech world, captivating our attention with its potential to revolutionize human-computer interactions. Among the remarkable…</description>
+    </item><item>
+      <title>From Beginner to Pro: Smart Ways to Start Your Web Development Journey and Land a Job Quickly</title>
+      <link>/blog/from-beginner-to-pro-smart-ways-to-start-your-web-development-journey-and-land-a-job-quickly/</link>
+      <pubDate>Fri, 19 May 2023 18:39:16 +0000</pubDate>
+      <category>Medium</category>
+      <description>In today’s digital age, web development has emerged as one of the most sought-after skills in the job market. With the right approach and dedication, you can start your web…</description>
+    </item><item>
+      <title>Whoaa!! Top 3 biggest community platforms for developers in 2023</title>
+      <link>/blog/whoaa-top-3-biggest-community-platforms-for-developers-in-2023/</link>
+      <pubDate>Fri, 21 Apr 2023 13:09:07 +0000</pubDate>
+      <category>Medium</category>
+      <description>In today’s fast-paced technological landscape, staying updated with the latest trends and developments is crucial for developers. Joining a developer community platform is a great…</description>
+    </item>
+  </channel>
+</rss>

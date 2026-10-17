@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Understanding the React Code Flow and directory structure - neerajmeena7 - Neeraj Kumar Meena</title>
+<meta name="description" content="React is a SPA (single-page application), a JavaScript library for building interactive UI for a webpage and It&#x27;s a component-based architecture with reusability and efficient…">
+<link rel="alternate" type="application/rss+xml" title="Neeraj Kumar Meena - Blog" href="/blog/index.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<script>try{document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "light")}catch(e){}</script>
+</head>
+<body>
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left"><a href="/" class="site-title-header">neeraj<span class="dot">.</span>meena</a></div>
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="/about/">About</a></li>
+<li><a href="/cv/">CV</a></li>
+<li><a href="/certifications/">Certification</a></li>
+<li><a href="/blog/" class="active" aria-current="page">Blog</a></li>
+<li><a href="/publications/">Publications</a></li>
+<li><a href="/talks/">Talks</a></li>
+<li><a href="/no-tech/">Non Tech</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="page-wrapper">
+  <div class="main-layout">
+    <main class="main-content">
+      <article class="blog-post-content">
+      <figure class="post-cover"><img src="image-0.png" alt=""></figure>
+      <header class="blog-post-header">
+        <h1>Understanding the React Code Flow and directory structure - neerajmeena7</h1>
+        <p class="post-meta"><time datetime="2024-06-30">June 30, 2024</time> · 4 min read</p>
+      </header>
+      <div class="blog-post-tags"><a class="tag" href="/tags/react/">react</a>
+<a class="tag" href="/tags/frontend-development/">frontend development</a>
+<a class="tag" href="/tags/vite/">vite</a>
+<a class="tag" href="/tags/web-development/">web development</a></div>
+      <div class="share">
+      <span class="share-label">Share</span>
+      <a class="share-btn" href="https://x.com/intent/post?text=Understanding+the+React+Code+Flow+and+directory+structure+-+neerajmeena7&url=https://neerajmeena.hashnode.dev/understanding-the-react-code-flow-and-directory-structure-neerajmeena7" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.17l-5.21-6.82-5.97 6.82H2.16l7.73-8.84L1.25 2.25h6.33l4.71 6.23 5.95-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://neerajmeena.hashnode.dev/understanding-the-react-code-flow-and-directory-structure-neerajmeena7" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" title="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.23 0z"/></svg></a>
+      <a class="share-btn" href="https://www.reddit.com/submit?url=https://neerajmeena.hashnode.dev/understanding-the-react-code-flow-and-directory-structure-neerajmeena7&title=Understanding+the+React+Code+Flow+and+directory+structure+-+neerajmeena7" target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit" title="Share on Reddit"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M14.5 3.5l1.1 5.2c1.2.3 2.2.9 2.9 1.7.7-.4 1.6-.5 2.4-.2.9.4 1.6 1.3 1.6 2.3 0 .8-.4 1.5-1 1.9.1.5.1 1 .1 1.5 0 3.3-3.8 6-8.6 6S4.4 19.2 4.4 15.9c0-.5 0-1 .1-1.5-.6-.4-1-1.1-1-1.9 0-1 .6-1.9 1.6-2.3.8-.3 1.7-.2 2.4.2.7-.8 1.7-1.4 2.9-1.7l1.2-5.2c.1-.4.4-.6.8-.6h2.6c.3 0 .6.3.5.6zM8.2 14.2a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zm7.6 0a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM8.7 17.6c.9.7 2.1 1 3.3 1s2.4-.3 3.3-1c.2-.1.4 0 .5.2.1.2 0 .4-.2.5-1.1.8-2.4 1.2-3.6 1.2s-2.5-.4-3.6-1.2c-.2-.1-.3-.3-.2-.5.1-.2.3-.3.5-.2z"/></svg></a>
+      <button type="button" class="share-btn share-copy" data-url="https://neerajmeena.hashnode.dev/understanding-the-react-code-flow-and-directory-structure-neerajmeena7" aria-label="Copy link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg><span class="share-copy-text">Copy link</span></button>
+    </div>
+      <details class="toc" open><summary>Contents</summary><nav><ul>
+<li><a href="#heading-how-to-build-a-reactjs-project">How to build a ReactJS Project?</a></li>
+<li><a href="#heading-how-does-the-reactjs-folder-structure-actually-work">How does the ReactJS folder structure actually work?</a></li>
+<li><a href="#heading-conclusion">Conclusion:</a></li>
+</ul></nav></details>
+      <div class="blog-post-body">
+        <p>Let's start to understand...</p>
+<p><strong>What is ReactJS?</strong></p>
+<p>React is a SPA (single-page application), a JavaScript library for building interactive UI for a webpage and It's a component-based architecture with reusability and efficient rendering through the Virtual DOM.</p>
+<p><strong>Why should we use ReactJS?</strong></p>
+<p>ReactJS is like a special tool that helps you build amazing things on the internet, like websites or web apps.</p>
+<p>As ReactJS helps to make it easier to build and maintain complex applications efficiently, it ensures efficient management of application state, leading to better scalability and performance.</p>
+<p><strong>Building a ReactJS Project 👉</strong></p>
+<h3 id="heading-how-to-build-a-reactjs-project"><strong>How to build a ReactJS Project?</strong> <a class="heading-anchor" href="#heading-how-to-build-a-reactjs-project" aria-label="Link to this section">#</a></h3>
+<p>Building a ReactJS project, these are the two ways, people generally follow:</p>
+<ol>
+<li><p><code>create-react-app</code></p>
+</li>
+<li><p>Using <strong>Vite+React</strong></p>
+</li>
+</ol>
+<p>Here, we should understand how they differentiate each other:</p>
+<p><strong>create-react-app</strong>:</p>
+<ul>
+<li><p><strong>Setup</strong>: Set up your project with everything you need using <strong><em>Webpack</em></strong> and <strong><em>Babel</em></strong>.</p>
+</li>
+<li><p><strong>Customization</strong>: Offers lots of options to change how your project works.</p>
+</li>
+<li><p><strong>Best for</strong>: Big projects where you need lots of control and stability.</p>
+</li>
+</ul>
+<p><strong>Vite+React</strong>:</p>
+<ul>
+<li><p><strong>Setup</strong>: Uses a faster tool called <strong><em>esbuild</em></strong> for quicker development.</p>
+</li>
+<li><p><strong>Speed</strong>: Makes your project run faster, especially during testing and changes.</p>
+</li>
+<li><p><strong>Best for</strong>: Starting new projects quickly and making them fast and modern.</p>
+</li>
+</ul>
+<h3 id="heading-how-does-the-reactjs-folder-structure-actually-work"><strong>How does the ReactJS folder structure actually work?</strong> <a class="heading-anchor" href="#heading-how-does-the-reactjs-folder-structure-actually-work" aria-label="Link to this section">#</a></h3>
+<p>It is important to understand the workflow of ReactJS bundle directories which seems like the jargon of folders with many annoying code files.</p>
+<p><strong>A. Standard ReactJS Project Building using</strong> <code>create-react-app</code></p>
+<p>In a standard ReactJS project created with create-react-app, the folder structure typically organizes your project in a straightforward and scalable way:</p>
+<ol>
+<li><strong>Public Folder (/):</strong> Contains static assets and the <code>index.html</code> file.</li>
+</ol>
+<ul>
+<li><p><strong>index.html</strong>: The main HTML file where your React application is injected. You can modify this file to add metadata, links to stylesheets, or scripts.</p>
+</li>
+<li><p>It serves as the main entry point for your application. Within this file, there is a root <code>div</code> element: <code>&lt;div id="root"&gt;&lt;/div&gt;</code></p>
+</li>
+<li><p>When you start the app (<code>npm start</code> or <code>yarn start</code>), <code>index.js</code> in <code>src/</code> renders the root component into this <code>div</code> using <code>ReactDOM.render()</code>.</p>
+</li>
+</ul>
+<p><strong>NOTE:</strong> This process allows React to dynamically update the content within the <code>#root</code> element based on changes in state or props, providing a responsive and interactive user experience.</p>
+<ol start="2">
+<li><strong>src folder (/):</strong> where most of your application code resides.</li>
+</ol>
+<ul>
+<li><p><strong>index.js</strong>: Entry point that renders the root component (<code>App</code>) into the DOM.</p>
+</li>
+<li><p><strong>App.js (or App.jsx)</strong>: Main component representing your app structure.</p>
+</li>
+<li><p><strong>components/</strong>: Directory for reusable UI components.</p>
+<ul>
+<li>Each component typically has its own folder with a <code>.js</code> (or <code>.jsx</code>) file for the component logic and a <code>.css</code> (or other styling files) for its styles.</li>
+</ul>
+</li>
+<li><p><strong>assets/</strong>: Folder for images, fonts, or other static files used in your application.</p>
+</li>
+<li><p><strong>utils/</strong>: Directory for utility functions or helper modules.</p>
+</li>
+<li><p><strong>services/</strong>: Directory for API services or other backend integrations.</p>
+</li>
+</ul>
+<ol start="3">
+<li><p><strong>node_modules/</strong>: Directory where npm/yarn installs project dependencies.</p>
+</li>
+<li><p><strong>package.json</strong>: Metadata about your project and its dependencies. It also includes scripts for building, testing, and running your app.</p>
+</li>
+<li><p><strong>Other Files</strong>:</p>
+<ul>
+<li><p><a target="_blank" href="http://README.md"><strong>README.md</strong></a>: Markdown file with information about the project.</p>
+</li>
+<li><p><strong>.gitignore</strong>: Specifies files and directories ignored by version control.</p>
+</li>
+<li><p><strong>Configuration Files</strong>: Depending on your setup, you might have additional configuration files like <code>.babelrc</code>, <code>.eslintrc</code>, or <code>.prettierrc</code> for configuring Babel, ESLint, or Prettier respectively.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>This structured approach helps maintain clarity and scalability as your React application grows. Components are organized into reusable units, assets are centralized in <code>public</code>, and configuration and utility files are logically separated. This makes it easier to collaborate, maintain, and extend your application over time using the standard setup provided by <code>create-react-app</code>.</p>
+<p><strong>B. Using Vite+ReactJS:</strong></p>
+<p>In Vite + ReactJS projects, the index.html file is usually found directly inside the src folder. This setup shows how Vite focuses on making development quicker and improving how JavaScript works.</p>
+<ol>
+<li><p><strong>src</strong> : Contains application source code.</p>
+<ul>
+<li><p><strong>index.html</strong>: Directly located in <code>src/</code>, serves as the main HTML entry point where Vite injects bundled JavaScript and CSS files.</p>
+</li>
+<li><p><code>main.jsx</code> <strong>(or main.js)</strong>: Entry point for React application setup.</p>
+</li>
+<li><p><strong>components/</strong>: Directory for reusable UI components.</p>
+</li>
+<li><p><strong>pages/</strong>: Directory for top-level views or routes.</p>
+</li>
+<li><p><strong>utils/</strong>: Directory for utility functions or helper modules.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>public/</strong>: Contains static assets and the <code>index.html</code> file.</p>
+<ul>
+<li><strong>index.html</strong>: Minimal HTML file that includes necessary metadata and a div element (e.g., <code>&lt;div id="app"&gt;&lt;/div&gt;</code>) where Vite injects the application.</li>
+</ul>
+</li>
+<li><p><strong>node_modules/</strong>: Directory where npm/yarn installs project dependencies.</p>
+</li>
+<li><p><strong>package.json</strong>: Metadata and scripts for managing dependencies, building, and running the project</p>
+</li>
+</ol>
+<p><strong>Key Differences:</strong></p>
+<ul>
+<li><p><strong>Folder Structure</strong>: Vite+ReactJS places <code>index.html</code> in <code>src/</code> for quicker setup and development, while standard ReactJS (create-react-app) has it in <code>public/</code>.</p>
+</li>
+<li><p><strong>Development Optimization</strong>: Vite uses esbuild for faster bundling and hot module replacement (HMR), enhancing development speed compared to webpack in <code>create-react-app</code>.</p>
+</li>
+<li><p><strong>Modern JavaScript Support</strong>: Vite supports native <strong>ES Module</strong> imports and leverages modern JavaScript features out-of-the-box, whereas create-react-app provides a more conventional setup with webpack and Babel for broader compatibility and customization.</p>
+</li>
+</ul>
+<h3 id="heading-conclusion"><strong>Conclusion:</strong> <a class="heading-anchor" href="#heading-conclusion" aria-label="Link to this section">#</a></h3>
+<p>In simple terms, Vite + ReactJS is all about being fast and using modern tools. It's great for projects that need quick development and top performance. On the other hand, create-react-app is more established and flexible, making it better for larger projects with specific needs and compatibility requirements.</p>
+<p><strong>Thanks 💗 for Reading this post!</strong></p>
+<p><strong>References:</strong></p>
+<ol>
+<li>Video: <a target="_blank" href="https://youtu.be/yNbnA5pryMg?si=__eWxXW2qqsMfDjO">https://youtu.be/yNbnA5pryMg?si=__eWxXW2qqsMfDjO</a></li>
+</ol>
+        <p><em>Originally published on <a href="https://neerajmeena.hashnode.dev/understanding-the-react-code-flow-and-directory-structure-neerajmeena7" target="_blank" rel="noopener noreferrer">Hashnode</a>.</em></p>
+      </div>
+      <footer class="blog-post-footer">
+        <a class="read-more" href="/blog/">← All posts</a>
+        <nav class="post-nav" aria-label="More posts"><a class="prev" href="/blog/how-to-build-a-simple-c-project-in-10-mins/"><small>← Newer</small><span>How to Build a simple C++ project in 10 mins?</span></a><a class="next" href="/blog/web-developments-explosive-rise-in-2023-unveiling-the-leading-tech-stacks-mongodb-nodejs/"><small>Older →</small><span>Web Development’s Explosive Rise in 2023: Unveiling the Leading Tech Stacks (MongoDB, Nodejs…</span></a></nav>
+      </footer>
+    </article>
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <p><b>© <span id="current-year">2026</span> Neeraj Kumar Meena</b></p>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="https://github.com/neeraj542" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/kumar-neeraj-2019/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="/blog/index.xml">RSS</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <div class="profile-image-circle"><img src="/assets/images/neeraj.jpg" alt="Neeraj Kumar Meena" id="profile-img" width="180" height="180"></div>
+      <h1 class="profile-name">Neeraj Kumar Meena</h1>
+      <p class="profile-title">AI Engineer</p>
+      <p class="profile-email"><a href="mailto:meenaneeraj631@gmail.com">meenaneeraj631@gmail.com</a></p>
+      <p class="profile-location-full"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Hyderabad, India</p>
+      <hr class="sidebar-divider">
+      <div class="sidebar-social">
+        <a href="https://github.com/neeraj542" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.05.14 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://www.linkedin.com/in/kumar-neeraj-2019/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.23 0z"/></svg></a>
+        <a href="https://x.com/51xneeraj" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X" title="X"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.17l-5.21-6.82-5.97 6.82H2.16l7.73-8.84L1.25 2.25h6.33l4.71 6.23 5.95-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+        <a href="/blog/index.xml" class="social-icon" aria-label="RSS feed" title="RSS feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+      </div>
+    </div>
+  </aside>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>

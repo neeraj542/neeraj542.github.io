@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I kept nodding along in CDN meetings. So I built a tiny one on my laptop. - Neeraj Kumar Meena</title>
+<meta name="description" content="Someone would say “cache miss” or “purge the edge” or “origin is fine,” and I would nod like I was in on it. Later, alone, I would open another blog post, skim a Cloudflare…">
+<link rel="alternate" type="application/rss+xml" title="Neeraj Kumar Meena - Blog" href="/blog/index.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<script>try{document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "light")}catch(e){}</script>
+</head>
+<body>
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left"><a href="/" class="site-title-header">neeraj<span class="dot">.</span>meena</a></div>
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="/about/">About</a></li>
+<li><a href="/cv/">CV</a></li>
+<li><a href="/certifications/">Certification</a></li>
+<li><a href="/blog/" class="active" aria-current="page">Blog</a></li>
+<li><a href="/publications/">Publications</a></li>
+<li><a href="/talks/">Talks</a></li>
+<li><a href="/no-tech/">Non Tech</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="page-wrapper">
+  <div class="main-layout">
+    <main class="main-content">
+      <article class="blog-post-content">
+      <figure class="post-cover"><img src="image-0.png" alt=""></figure>
+      <header class="blog-post-header">
+        <h1>I kept nodding along in CDN meetings. So I built a tiny one on my laptop.</h1>
+        <p class="post-meta"><time datetime="2026-07-22">July 22, 2026</time> · 6 min read</p>
+      </header>
+      <div class="blog-post-tags"><a class="tag" href="/tags/networking/">networking</a>
+<a class="tag" href="/tags/docker/">docker</a>
+<a class="tag" href="/tags/nginx/">nginx</a>
+<a class="tag" href="/tags/software-engineering/">software-engineering</a></div>
+      <div class="share">
+      <span class="share-label">Share</span>
+      <a class="share-btn" href="https://x.com/intent/post?text=I+kept+nodding+along+in+CDN+meetings.+So+I+built+a+tiny+one+on+my+laptop.&url=https://51xneeraj.medium.com/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop-ca483c91cacd" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.17l-5.21-6.82-5.97 6.82H2.16l7.73-8.84L1.25 2.25h6.33l4.71 6.23 5.95-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://51xneeraj.medium.com/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop-ca483c91cacd" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" title="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.23 0z"/></svg></a>
+      <a class="share-btn" href="https://www.reddit.com/submit?url=https://51xneeraj.medium.com/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop-ca483c91cacd&title=I+kept+nodding+along+in+CDN+meetings.+So+I+built+a+tiny+one+on+my+laptop." target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit" title="Share on Reddit"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M14.5 3.5l1.1 5.2c1.2.3 2.2.9 2.9 1.7.7-.4 1.6-.5 2.4-.2.9.4 1.6 1.3 1.6 2.3 0 .8-.4 1.5-1 1.9.1.5.1 1 .1 1.5 0 3.3-3.8 6-8.6 6S4.4 19.2 4.4 15.9c0-.5 0-1 .1-1.5-.6-.4-1-1.1-1-1.9 0-1 .6-1.9 1.6-2.3.8-.3 1.7-.2 2.4.2.7-.8 1.7-1.4 2.9-1.7l1.2-5.2c.1-.4.4-.6.8-.6h2.6c.3 0 .6.3.5.6zM8.2 14.2a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zm7.6 0a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM8.7 17.6c.9.7 2.1 1 3.3 1s2.4-.3 3.3-1c.2-.1.4 0 .5.2.1.2 0 .4-.2.5-1.1.8-2.4 1.2-3.6 1.2s-2.5-.4-3.6-1.2c-.2-.1-.3-.3-.2-.5.1-.2.3-.3.5-.2z"/></svg></a>
+      <button type="button" class="share-btn share-copy" data-url="https://51xneeraj.medium.com/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop-ca483c91cacd" aria-label="Copy link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg><span class="share-copy-text">Copy link</span></button>
+    </div>
+      <details class="toc" open><summary>Contents</summary><nav><ul>
+<li><a href="#the-picture-i-finally-believed">The picture I finally believed</a></li>
+<li><a href="#what-i-actually-shipped">What I actually shipped</a></li>
+<li><a href="#the-first-night-it-worked">The first night it worked</a></li>
+<li><a href="#how-the-code-is-arranged-the-non-scary-version">How the code is arranged (the non-scary version)</a></li>
+<li><a href="#1-docker-compose-yml">1) docker-compose.yml</a></li>
+<li><a href="#2-origin-app-py">2) origin/app.py</a></li>
+<li><a href="#3-nginx-nginx-conf">3) nginx/nginx.conf</a></li>
+<li><a href="#4-test-suite-sh">4) test-suite.sh</a></li>
+<li><a href="#the-bugs-that-made-it-feel-real">The bugs that made it feel real</a></li>
+<li><a href="#three-small-recipes-after-the-default-demo">Three small recipes after the default demo</a></li>
+<li><a href="#why-i-bother-publishing-this">Why I bother publishing this</a></li>
+<li><a href="#if-you-try-it-tonight">If you try it tonight</a></li>
+<li><a href="#end-note">End note</a></li>
+</ul></nav></details>
+      <div class="blog-post-body">
+        <figure><img alt="" src="image-0.png" /><figcaption><em>The whole lab in one line: client hits Nginx first, origin stays behind it.</em></figcaption></figure><p>Last year I noticed a bad habit.</p><p>Someone would say “cache miss” or “purge the edge” or “origin is fine,” and I would nod like I was in on it. Later, alone, I would open another blog post, skim a Cloudflare diagram, and still not feel the path in my hands.</p><p>I did not need another slide deck. I needed something that answered back.</p><p>So I built a small lab: Nginx in front, a Flask app hidden behind it, TLS on the edge, cache headers I could read, and a test script that fails if I am lying to myself.</p><p>I call it <strong>ns-cdn-lab</strong>.<br><strong><em>github-repository</em></strong> : <a href="https://github.com/neeraj542/ns-cdn-lab">https://github.com/neeraj542/<strong>ns-cdn-lab</strong></a></p><p>This is what happened while building it, and how the pieces fit, in plain language.</p><h3 id="the-picture-i-finally-believed">The picture I finally believed <a class="heading-anchor" href="#the-picture-i-finally-believed" aria-label="Link to this section">#</a></h3><p>Big sites do not serve everything from one kitchen.</p><p>Your phone hits something nearby first. That nearby box is the edge. The real app — the origin — sits further back. If the edge already has a fresh copy, you get it fast. If not, the edge fetches once, stores it, and the next person benefits.</p><p>I kept that in one line on a sticky note:</p><p>Client → edge → origin (only when needed)</p><p>MISS means the edge went to origin.<br>HIT means it did not have to.</p><p>Cart pages and logins usually skip the public cache. Product images often live there for a while. Once I could say that out loud without checking Twitter, I knew what to build.</p><h3 id="what-i-actually-shipped">What I actually shipped <a class="heading-anchor" href="#what-i-actually-shipped" aria-label="Link to this section">#</a></h3><p>Two Docker containers on one private network.</p><ul><li>edge-proxy — Nginx. Ports 80 and 443 on localhost only.</li><li>origin-server — Flask. No host ports. You cannot hit it directly from the laptop the way a normal demo app is hit.</li></ul><p>That “no host ports” choice was deliberate. Real CDNs hide origins. I wanted the same shape, even in a toy.</p><p>On a miss, origin sends something like Cache-Control: public, max-age=60 and a homemade header, X-Origin-Server, so I can see that the backend really answered. The edge adds X-Cache-Status so I can see HIT or MISS without guessing.</p><p>It is not Cloudflare. It is not CloudFront. It will not protect you on the public internet. It is a desk lamp for a dark topic.</p><h3 id="the-first-night-it-worked">The first night it worked <a class="heading-anchor" href="#the-first-night-it-worked" aria-label="Link to this section">#</a></h3><p>I ran these commands:</p><blockquote>make up<br>make test</blockquote><figure><img alt="" src="image-1.png" /><figcaption><em>The receipt. Redirect, cache, TLS 1.3, and the security checks in one run.</em></figcaption></figure><p>10/10 checks went <strong>green</strong>. I stared at the terminal longer than I should admit.</p><figure><img alt="" src="image-2.png" /><figcaption>After make up: origin stays private, only the Nginx edge publishes 80/443.</figcaption></figure><p>Then I tried on CURL:</p><blockquote>curl -Ik — resolve ns-cdn-lab.local:443:127.0.0.1 <a href="https://ns-cdn-lab.local/">https://ns-cdn-lab.local/</a></blockquote><p>1st request: <strong>MISS</strong>.</p><figure><img alt="" src="image-3.png" /><figcaption>First hit for a fresh URL. Edge didn’t have it, so it went to origin.</figcaption></figure><p>2nd (Same) URL again: <strong>HIT</strong>.</p><figure><img alt="" src="image-4.png" /><figcaption>Same URL again. HIT means Nginx served from cache — no origin round-trip.</figcaption></figure><p>No dashboard. No account. Just headers. That was the moment the buzzwords got quiet.</p><h3 id="how-the-code-is-arranged-the-non-scary-version">How the code is arranged (the non-scary version) <a class="heading-anchor" href="#how-the-code-is-arranged-the-non-scary-version" aria-label="Link to this section">#</a></h3><p>If you open the repo, you do not need to read everything. Four places matter.</p><h3 id="1-docker-compose-yml">1) docker-compose.yml <a class="heading-anchor" href="#1-docker-compose-yml" aria-label="Link to this section">#</a></h3><p>This is the floor plan. Edge and origin share a Docker network. Only Nginx is published to the host. Origin is a neighbour on the network, not a public door on your machine.</p><h3 id="2-origin-app-py">2) origin/app.py <a class="heading-anchor" href="#2-origin-app-py" aria-label="Link to this section">#</a></h3><p>A small Flask app. It serves a page and stamps cache headers. I cared less about pretty HTML and more about whether the edge would honour what the origin claimed.</p><h3 id="3-nginx-nginx-conf">3) nginx/nginx.conf <a class="heading-anchor" href="#3-nginx-nginx-conf" aria-label="Link to this section">#</a></h3><p>This file is the product.</p><ul><li>It redirects HTTP to HTTPS.</li><li>It terminates TLS 1.3.</li><li>It caches with proxy_cache.</li><li>It maps cache state into X-Cache-Status.</li><li>It blocks silly methods, blocks a short list of scanner user-agents, and rate-limits noisy clients.</li></ul><p>I left /edge-health out of the rate limit on purpose. The first time health checks and tests fought my own 429s, I learned why production edges carve out probe paths.</p><h3 id="4-test-suite-sh">4) test-suite.sh <a class="heading-anchor" href="#4-test-suite-sh" aria-label="Link to this section">#</a></h3><p>Redirect, miss, hit, TLS, 405, 403, 429. If I change config and break the story, the script says so. That matters more to me than a polished README screenshot.</p><h3 id="the-bugs-that-made-it-feel-real">The bugs that made it feel real <a class="heading-anchor" href="#the-bugs-that-made-it-feel-real" aria-label="Link to this section">#</a></h3><p>Tutorials skip the ugly parts. Mine did not.</p><p><strong>&lt;&gt; TLS cipher footgun.</strong><br>I put TLS 1.3 suites in ssl_ciphers. On OpenSSL 3, Nginx crash-looped with a cipher mismatch. The fix was ssl_conf_command Ciphersuites. I only remember it because the container would not stay up and I had to read error logs like a suspect.</p><p><strong>&lt;&gt; Certificate regenerate while the edge was live.</strong><br>I reminted certs under a running proxy and then watched host curl fail with connection resets, while inside the container health still looked fine. Docker Desktop and bind-mounted keys can be unkind. Now everyday cert generation reuses files unless I force a new pair, and I recreate the edge when TLS on the host goes weird.</p><p><strong>&lt;&gt; Example switching flake.</strong><br>After swapping origins, sometimes :443 on the host lied until docker compose up --force-recreate edge-proxy. Annoying. Also useful. Labs that never break teach less.</p><p>I kept those notes in the troubleshooting doc because future-me will hit them again, and because interviewers ask what went wrong more often than what went right.</p><h3 id="three-small-recipes-after-the-default-demo">Three small recipes after the default demo <a class="heading-anchor" href="#three-small-recipes-after-the-default-demo" aria-label="Link to this section">#</a></h3><p>One origin is not enough if you want to talk about real apps.</p><p>So the edge stays put, and Compose overrides swap only the origin:</p><ul><li>static site with different TTLs for HTML and CSS</li><li>API where GET can cache and POST does not</li><li>bring-your-own app on a host port, for side projects</li></ul><p>The BYO path is the one I use when I am about to put something on Cloudflare. Check headers at home first. Pay money later.</p><h3 id="why-i-bother-publishing-this">Why I bother publishing this <a class="heading-anchor" href="#why-i-bother-publishing-this" aria-label="Link to this section">#</a></h3><p>I am early in my career. I do not have a decade of edge tickets behind me. What I can show is a public repo, a failing-and-passing test suite, and a demo I can run live:</p><p>MISS, then HIT, then a blocked DELETE, then a blocked scanner UA, then a 429 if I hammer it.</p><p>That is not a certificate. It is a workbench. For talks, DevRel samples, remote interviews, or contests, a workbench beats a paragraph that says “familiar with CDN concepts.”</p><p>I still read vendor docs. I just refuse to nod without a lab anymore.</p><h3 id="if-you-try-it-tonight">If you try it tonight <a class="heading-anchor" href="#if-you-try-it-tonight" aria-label="Link to this section">#</a></h3><blockquote>git clone <a href="https://github.com/neeraj542/ns-cdn-lab.git">https://github.com/neeraj542/ns-cdn-lab.git</a></blockquote><blockquote>cd edgeforge-lab-networking</blockquote><blockquote>make up</blockquote><blockquote>make test</blockquote><p>Then break something on purpose. Change a TTL. Send DELETE. Read nginx/nginx.conf once, slowly. When a header changes because of a line you touched, the topic stops being abstract.</p><p>Docs are short on purpose: a guide, examples, troubleshooting. I deleted a pile of extra markdown after I realised I was writing a textbook nobody asked for.</p><h3 id="end-note">End note <a class="heading-anchor" href="#end-note" aria-label="Link to this section">#</a></h3><p>I built ns-cdn-lab because guessing felt worse than being wrong in public.</p><p>If it helps you debug one cache header, teach one junior, or walk into a conversation without fake confidence, good. If you find a sharp edge, open an issue or a PR.</p><p>I will be over here, still watching X-Cache-Status like it owes me rent.</p><p><strong>Follow me over X:</strong> <a href="https://x.com/51xneeraj">https://x.com/51xneeraj</a></p>
+        <p><em>Originally published on <a href="https://51xneeraj.medium.com/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop-ca483c91cacd" target="_blank" rel="noopener noreferrer">Medium</a>.</em></p>
+      </div>
+      <footer class="blog-post-footer">
+        <a class="read-more" href="/blog/">← All posts</a>
+        <nav class="post-nav" aria-label="More posts"><a class="next" href="/blog/why-default-container-networks-fail-in-production-and-how-to-fix-it/"><small>Older →</small><span>Why Default Container Networks Fail in Production (and How to Fix It)</span></a></nav>
+      </footer>
+    </article>
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <p><b>© <span id="current-year">2026</span> Neeraj Kumar Meena</b></p>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="https://github.com/neeraj542" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/kumar-neeraj-2019/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="/blog/index.xml">RSS</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <div class="profile-image-circle"><img src="/assets/images/neeraj.jpg" alt="Neeraj Kumar Meena" id="profile-img" width="180" height="180"></div>
+      <h1 class="profile-name">Neeraj Kumar Meena</h1>
+      <p class="profile-title">AI Engineer</p>
+      <p class="profile-email"><a href="mailto:meenaneeraj631@gmail.com">meenaneeraj631@gmail.com</a></p>
+      <p class="profile-location-full"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Hyderabad, India</p>
+      <hr class="sidebar-divider">
+      <div class="sidebar-social">
+        <a href="https://github.com/neeraj542" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.05.14 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://www.linkedin.com/in/kumar-neeraj-2019/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.23 0z"/></svg></a>
+        <a href="https://x.com/51xneeraj" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X" title="X"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.17l-5.21-6.82-5.97 6.82H2.16l7.73-8.84L1.25 2.25h6.33l4.71 6.23 5.95-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+        <a href="/blog/index.xml" class="social-icon" aria-label="RSS feed" title="RSS feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+      </div>
+    </div>
+  </aside>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>

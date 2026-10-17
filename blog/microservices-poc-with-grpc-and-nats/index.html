@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploring reality of building microservice architecture: A gRPC and NATS (complete POC) - Neeraj Kumar Meena</title>
+<meta name="description" content="What I learned building MicroBuf, a small gRPC + NATS experiment that taught me more than 6 months of reading Medium posts">
+<link rel="alternate" type="application/rss+xml" title="Neeraj Kumar Meena - Blog" href="/blog/index.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<script>try{document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "light")}catch(e){}</script>
+</head>
+<body>
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left"><a href="/" class="site-title-header">neeraj<span class="dot">.</span>meena</a></div>
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="/about/">About</a></li>
+<li><a href="/cv/">CV</a></li>
+<li><a href="/certifications/">Certification</a></li>
+<li><a href="/blog/" class="active" aria-current="page">Blog</a></li>
+<li><a href="/publications/">Publications</a></li>
+<li><a href="/talks/">Talks</a></li>
+<li><a href="/no-tech/">Non Tech</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="page-wrapper">
+  <div class="main-layout">
+    <main class="main-content">
+      <article class="blog-post-content">
+      <figure class="post-cover"><img src="image-0.png" alt=""></figure>
+      <header class="blog-post-header">
+        <h1>Exploring reality of building microservice architecture: A gRPC and NATS (complete POC)</h1>
+        <p class="post-meta"><time datetime="2026-01-22">January 22, 2026</time> · 9 min read</p>
+      </header>
+      <div class="blog-post-tags"><a class="tag" href="/tags/microbuf/">microbuf</a>
+<a class="tag" href="/tags/golang/">golang</a>
+<a class="tag" href="/tags/grpc/">grpc</a>
+<a class="tag" href="/tags/backend/">backend</a></div>
+      <div class="share">
+      <span class="share-label">Share</span>
+      <a class="share-btn" href="https://x.com/intent/post?text=Exploring+reality+of+building+microservice+architecture:+A+gRPC+and+NATS+(complete+POC)&url=https://neerajmeena.hashnode.dev/microservices-poc-with-grpc-and-nats" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.17l-5.21-6.82-5.97 6.82H2.16l7.73-8.84L1.25 2.25h6.33l4.71 6.23 5.95-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://neerajmeena.hashnode.dev/microservices-poc-with-grpc-and-nats" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" title="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.23 0z"/></svg></a>
+      <a class="share-btn" href="https://www.reddit.com/submit?url=https://neerajmeena.hashnode.dev/microservices-poc-with-grpc-and-nats&title=Exploring+reality+of+building+microservice+architecture:+A+gRPC+and+NATS+(complete+POC)" target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit" title="Share on Reddit"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M14.5 3.5l1.1 5.2c1.2.3 2.2.9 2.9 1.7.7-.4 1.6-.5 2.4-.2.9.4 1.6 1.3 1.6 2.3 0 .8-.4 1.5-1 1.9.1.5.1 1 .1 1.5 0 3.3-3.8 6-8.6 6S4.4 19.2 4.4 15.9c0-.5 0-1 .1-1.5-.6-.4-1-1.1-1-1.9 0-1 .6-1.9 1.6-2.3.8-.3 1.7-.2 2.4.2.7-.8 1.7-1.4 2.9-1.7l1.2-5.2c.1-.4.4-.6.8-.6h2.6c.3 0 .6.3.5.6zM8.2 14.2a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zm7.6 0a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM8.7 17.6c.9.7 2.1 1 3.3 1s2.4-.3 3.3-1c.2-.1.4 0 .5.2.1.2 0 .4-.2.5-1.1.8-2.4 1.2-3.6 1.2s-2.5-.4-3.6-1.2c-.2-.1-.3-.3-.2-.5.1-.2.3-.3.5-.2z"/></svg></a>
+      <button type="button" class="share-btn share-copy" data-url="https://neerajmeena.hashnode.dev/microservices-poc-with-grpc-and-nats" aria-label="Copy link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg><span class="share-copy-text">Copy link</span></button>
+    </div>
+      <details class="toc" open><summary>Contents</summary><nav><ul>
+<li><a href="#heading-why-i-built-this">Why I Built This</a></li>
+<li><a href="#heading-what-i-built">What I Built</a></li>
+<li><a href="#heading-the-first-aha-moment-protobuf-isnt-just-about-speed">The First &quot;Aha&quot; Moment: Protobuf Isn&#x27;t Just About Speed</a></li>
+<li><a href="#heading-grpc-its-not-rest-and-thats-the-point">gRPC: It&#x27;s Not REST, and That&#x27;s the Point</a></li>
+<li><a href="#heading-the-second-aha-moment-events-change-how-you-think">The Second &quot;Aha&quot; Moment: Events Change How You Think</a></li>
+<li><a href="#heading-why-i-chose-nats-over-kafka">Why I Chose NATS Over Kafka</a></li>
+<li><a href="#heading-things-that-surprised-me">Things That Surprised Me</a></li>
+<li><a href="#heading-what-id-do-differently">What I&#x27;d Do Differently</a></li>
+<li><a href="#heading-what-i-learned-about-learning">What I Learned About Learning</a></li>
+<li><a href="#heading-should-you-build-something-like-this">Should You Build Something Like This?</a></li>
+<li><a href="#heading-whats-next-for-me">What&#x27;s Next for Me</a></li>
+</ul></nav></details>
+      <div class="blog-post-body">
+        <p><em>What I learned building MicroBuf, a small gRPC + NATS experiment that taught me more than 6 months of reading Medium posts</em></p>
+<h2 id="heading-why-i-built-this"><strong>Why I Built This</strong> <a class="heading-anchor" href="#heading-why-i-built-this" aria-label="Link to this section">#</a></h2>
+<p>I've been a backend engineer for about 18 months now. Most of my work has been on REST APIs—Node.js services talking to each other over HTTP, passing JSON back and forth. It works fine, but I kept hearing about gRPC, Protocol Buffers, and event-driven architectures in tech talks and blog posts.</p>
+<p>The problem? I didn't really <em>get</em> it. I understood the concepts theoretically, but I couldn't answer basic questions like:</p>
+<ul>
+<li><p>Why would I use gRPC instead of REST?</p>
+</li>
+<li><p>What does "schema-first" actually mean in practice?</p>
+</li>
+<li><p>How do you make services in different languages talk to each other reliably?</p>
+</li>
+<li><p>What's the difference between synchronous and asynchronous communication beyond "one waits, one doesn't"?</p>
+</li>
+</ul>
+<p>So I did what I always do when I'm confused: I built something.</p>
+<p>I called it <strong>MicroBuf,</strong> a small proof-of-concept with three microservices using gRPC (for request-response), Protocol Buffers (for type-safe contracts), and NATS (for event streaming). Two services in Go, one in Python, all talking to each other like they're part of the same system.</p>
+<p>This post is about what I learned. Not "here's how to build microservices" (there are plenty of those), but "here's what surprised me, what clicked, and what I'd do differently."</p>
+<h2 id="heading-what-i-built"><strong>What I Built</strong> <a class="heading-anchor" href="#heading-what-i-built" aria-label="Link to this section">#</a></h2>
+<p>MicroBuf has three services:</p>
+<ol>
+<li><p><strong>User Service (Go)</strong>: Creates and retrieves users. When you create a user, it saves it in memory and publishes a <code>USER_CREATED</code> event.</p>
+</li>
+<li><p><strong>Post Service (Python)</strong>: Creates posts for users. When you create a post, it publishes a <code>POST_CREATED</code> event.</p>
+</li>
+<li><p><strong>Analytics Service (Go)</strong>: Doesn't serve any requests. It just listens to all events and logs statistics—how many users created, how many posts, etc.</p>
+</li>
+</ol>
+<p>Clients (both Go and Python) can call User Service and Post Service over gRPC. Services communicate with each other through events on NATS.</p>
+<p>Simple, right? But here's what made it interesting: the services are in different languages, they don't share any code, and they don't know about each other's implementation. They only share <code>.proto</code> files.</p>
+<h2 id="heading-the-first-aha-moment-protobuf-isnt-just-about-speed"><strong>The First "Aha" Moment: Protobuf Isn't Just About Speed</strong> <a class="heading-anchor" href="#heading-the-first-aha-moment-protobuf-isnt-just-about-speed" aria-label="Link to this section">#</a></h2>
+<p>Everyone talks about Protobuf being faster than JSON. Smaller payloads, binary encoding, blah blah. That's true, but it's not why Protobuf matters.</p>
+<p>Protobuf matters because it's a <strong>contract</strong>.</p>
+<p>Here's what I mean. In my previous projects with REST APIs, the "contract" between services was... documentation. Maybe a Swagger file if we were disciplined. But nothing enforced it. If the backend changed a field from <code>user_id</code> to <code>userId</code>, the frontend would break at runtime.</p>
+<p>With Protobuf, you define your contract in a <code>.proto</code> file:</p>
+<div class="highlight"><pre><code class="lang-elixir">message CreateUserRequest {
+  string name = <span class="hljs-number">1</span>;
+  string email = <span class="hljs-number">2</span>;
+}
+
+message UserResponse {
+  string user_id = <span class="hljs-number">1</span>;
+  string name = <span class="hljs-number">2</span>;
+  string email = <span class="hljs-number">3</span>;
+  int64 created_at = <span class="hljs-number">4</span>;
+}
+</code></pre></div>
+<p>Then you run <code>protoc</code> (the Protobuf compiler) and it generates code for Go, Python, Java, whatever. The generated code is type-safe. If you try to pass a string where an int is expected, your code won't compile.</p>
+<p>This was my first "aha" moment: <strong>the contract is enforced at compile time, not runtime</strong>.</p>
+<p>No more "oops, I forgot to update the client." No more "the API returns a string but the docs say it's a number." If the contract changes, every service that depends on it knows immediately.</p>
+<h2 id="heading-grpc-its-not-rest-and-thats-the-point"><strong>gRPC: It's Not REST, and That's the Point</strong> <a class="heading-anchor" href="#heading-grpc-its-not-rest-and-thats-the-point" aria-label="Link to this section">#</a></h2>
+<p>I spent the first day trying to understand gRPC by comparing it to REST. That was a mistake.</p>
+<p>gRPC isn't "REST but faster." It's a completely different model.</p>
+<p>With REST, you're thinking in resources and HTTP verbs: <code>GET /users/123</code>, <code>POST /posts</code>, etc. With gRPC, you're thinking in <strong>remote procedure calls</strong>—literally calling a function on another machine like it's local.</p>
+<p>Here's what a gRPC call looks like in Go:</p>
+<div class="highlight"><pre><code class="lang-go">client := userpb.NewUserServiceClient(conn)
+resp, err := client.CreateUser(ctx, &amp;userpb.CreateUserRequest{
+    Name:  <span class="hljs-string">"Alice"</span>,
+    Email: <span class="hljs-string">"alice@example.com"</span>,
+})
+</code></pre></div>
+<p>It feels like calling a function. Because it is. The client doesn't know (or care) that this function is running on a different machine. It just calls it, gets a response, and moves on.</p>
+<p>This is powerful for service-to-service communication. No need to think about HTTP methods, status codes, or URL paths. Just define your service in a <code>.proto</code> file and call methods.</p>
+<p>But here's what surprised me: <strong>gRPC is terrible for debugging at first</strong>.</p>
+<p>With REST, I can use <code>curl</code> or Postman. I can see the raw JSON. I can inspect headers. With gRPC, the data is binary. You need special tools like <code>grpcurl</code> or Postman's gRPC support. It took me a while to get comfortable with that.</p>
+<p>Trade-off learned: gRPC is great for performance and type safety, but the developer experience takes some getting used to.</p>
+<h2 id="heading-the-second-aha-moment-events-change-how-you-think"><strong>The Second "Aha" Moment: Events Change How You Think</strong> <a class="heading-anchor" href="#heading-the-second-aha-moment-events-change-how-you-think" aria-label="Link to this section">#</a></h2>
+<p>The most interesting part of MicroBuf wasn't gRPC—it was the event-driven layer.</p>
+<p>Here's how it works: when User Service creates a user, it publishes an event to NATS:</p>
+<div class="highlight"><pre><code class="lang-go">event := &amp;Event{
+    EventType: USER_CREATED,
+    UserId:    userID,
+    Timestamp: time.Now().Unix(),
+}
+natsConn.Publish(<span class="hljs-string">"events.user.created"</span>, marshal(event))
+</code></pre></div>
+<p>Analytics Service subscribes to all events:</p>
+<div class="highlight"><pre><code class="lang-go">natsConn.Subscribe(<span class="hljs-string">"events.*"</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(msg *nats.Msg)</span></span> {
+    <span class="hljs-comment">// Process event</span>
+})
+</code></pre></div>
+<p>User Service doesn't know Analytics Service exists. It just publishes the event and moves on. If Analytics is down, the event gets queued. If a new service wants to listen tomorrow, it just subscribes. No changes to User Service.</p>
+<p>This was my second "aha" moment: <strong>events decouple services in time and space</strong>.</p>
+<p>In my previous projects, if Service A needed to notify Service B, we'd make Service A call Service B's API. This creates coupling: Service A needs to know Service B's URL, handle retries if B is down, etc.</p>
+<p>With events, Service A just says "this happened" and moves on. Who's listening? Not A's problem. This makes the system way more flexible.</p>
+<p>But here's the trade-off: <strong>debugging is harder</strong>. With synchronous calls, if something breaks, you get an error immediately. With events, if Analytics Service has a bug, User Service doesn't know. The event gets published, but nothing happens. You need good logging and monitoring to catch these issues.</p>
+<h2 id="heading-why-i-chose-nats-over-kafka"><strong>Why I Chose NATS Over Kafka</strong> <a class="heading-anchor" href="#heading-why-i-chose-nats-over-kafka" aria-label="Link to this section">#</a></h2>
+<p>Everyone uses Kafka, right? So why did I use NATS?</p>
+<p>Honestly? Because Kafka scared me.</p>
+<p>I looked at the setup—Zookeeper, brokers, partitions, consumer groups—and thought "I just want to publish events, not manage a distributed system."</p>
+<p>NATS is a single binary. You run <code>nats-server</code> and you're done. No Zookeeper. No partition management. Pub/sub just works.</p>
+<p>For a learning project, this was perfect. I could focus on the architecture, not the infrastructure.</p>
+<p>That said, I know Kafka has features NATS doesn't—like guaranteed message ordering, long-term storage, and exactly-once delivery. If I were building a real production system with millions of events, I'd probably use Kafka.</p>
+<p>But for learning? NATS was the right choice.</p>
+<h2 id="heading-things-that-surprised-me"><strong>Things That Surprised Me</strong> <a class="heading-anchor" href="#heading-things-that-surprised-me" aria-label="Link to this section">#</a></h2>
+<p><strong>1. Polyglot communication is easier than I thought</strong></p>
+<p>I expected mixing Go and Python to be painful. It wasn't. Once I had the <code>.proto</code> files, generating code for both languages was trivial. The Go client could call the Python service without knowing it was Python. The contract was the same.</p>
+<p><strong>2. Error handling is different with gRPC</strong></p>
+<p>In REST, you have HTTP status codes: 200, 404 error, 500, etc. In gRPC, you have status codes too, but they're different: <code>OK</code>, <code>NOT_FOUND</code>, <code>INTERNAL</code>, etc. It took me a while to learn the mapping.</p>
+<p><strong>3. Local development setup matters</strong></p>
+<p>I spent way too much time debugging import paths and module issues. Go's module system is powerful but confusing when you're generating code. I had to use <code>replace</code> directives in <code>go.mod</code> to make local protobuf packages work. This isn't a gRPC problem, it's a Go modules problem.</p>
+<p><strong>4. Graceful shutdown is harder than I thought</strong></p>
+<p>When you shut down a service, you need to:</p>
+<ul>
+<li><p>Stop accepting new requests</p>
+</li>
+<li><p>Finish in-flight requests</p>
+</li>
+<li><p>Close gRPC connections cleanly</p>
+</li>
+<li><p>Close NATS connections</p>
+</li>
+</ul>
+<p>I didn't think about this at first. My services would just crash when I hit Ctrl+C. I had to learn about signal handling and graceful shutdown patterns.</p>
+<h2 id="heading-what-id-do-differently"><strong>What I'd Do Differently</strong> <a class="heading-anchor" href="#heading-what-id-do-differently" aria-label="Link to this section">#</a></h2>
+<p>If I were building this again (or taking it to production), here's what I would love to change:</p>
+<ul>
+<li><p><strong>Add a database</strong>: Right now everything's in-memory. Production needs Postgres or similar. But the architecture wouldn't change, services would still communicate via gRPC and events.</p>
+</li>
+<li><p><strong>Add authentication</strong>: No auth right now. In production, I'd add mTLS for service-to-service communication and JWT for clients.</p>
+</li>
+<li><p><strong>Add observability</strong>: Logs are fine for learning, but production needs metrics (Prometheus), tracing (Jaeger), and proper alerting.</p>
+</li>
+<li><p><strong>Use an API gateway</strong>: Right now clients call services directly. In production, I'd put an API gateway (like Envoy) in front to handle routing, auth, and rate limiting.</p>
+</li>
+<li><p><strong>Add tests</strong>: I have zero tests. This is fine for a POC, but production needs unit tests, integration tests, and contract tests.</p>
+</li>
+</ul>
+<h2 id="heading-what-i-learned-about-learning"><strong>What I Learned About Learning</strong> <a class="heading-anchor" href="#heading-what-i-learned-about-learning" aria-label="Link to this section">#</a></h2>
+<p>Building MicroBuf taught me more than reading 10 blog posts about microservices. Here's why:</p>
+<p><strong>1. You remember what you struggle with:</strong> I spent hours debugging Go module paths. I'll never forget how <code>replace</code> directives work now.</p>
+<p><strong>2. You learn the trade-offs, not just the features:</strong> Blog posts say "gRPC is fast." Building it taught me "gRPC is fast but harder to debug."</p>
+<p><strong>3. You build intuition:</strong> I can now <em>feel</em> the difference between synchronous and asynchronous communication. I know when to use each. That's not something you get from reading.</p>
+<h2 id="heading-should-you-build-something-like-this"><strong>Should You Build Something Like This?</strong> <a class="heading-anchor" href="#heading-should-you-build-something-like-this" aria-label="Link to this section">#</a></h2>
+<p>If you're a junior/mid-level engineer and you're curious about microservices, gRPC, or event-driven architecture, I'd say: yes, build something small.</p>
+<p>Not because you'll use it in production, but because you'll learn patterns you can apply everywhere.</p>
+<p>Here's my advice:</p>
+<ol>
+<li><p><strong>Start small</strong>: Three services, not ten. Focus on getting communication right.</p>
+</li>
+<li><p><strong>Use multiple languages</strong>: It forces you to think about contracts, not implementation.</p>
+</li>
+<li><p><strong>Deploy locally first</strong>: Docker Compose is fine. Kubernetes can wait.</p>
+</li>
+<li><p><strong>Break things</strong>: Shut down a service mid-request. See what happens. That's how you learn resilience.</p>
+</li>
+<li><p><strong>Don't over-engineer</strong>: No service mesh, no Kubernetes, no distributed tracing. Add complexity only when you need it.</p>
+</li>
+</ol>
+<h2 id="heading-whats-next-for-me"><strong>What's Next for Me</strong> <a class="heading-anchor" href="#heading-whats-next-for-me" aria-label="Link to this section">#</a></h2>
+<p>I'm planning to extend MicroBuf with:</p>
+<ul>
+<li><p>A real database (probably Postgres)</p>
+</li>
+<li><p>Authentication (mTLS between services)</p>
+</li>
+<li><p>An API gateway (Envoy or a simple Go proxy)</p>
+</li>
+<li><p>Observability (OpenTelemetry for tracing)</p>
+</li>
+</ul>
+<p>Not because I need these features, but because I want to learn how they fit into the architecture.</p>
+<p>That's the point of POCs: they're not about shipping features. They're about building mental models.</p>
+        <p><em>Originally published on <a href="https://neerajmeena.hashnode.dev/microservices-poc-with-grpc-and-nats" target="_blank" rel="noopener noreferrer">Hashnode</a>.</em></p>
+      </div>
+      <footer class="blog-post-footer">
+        <a class="read-more" href="/blog/">← All posts</a>
+        <nav class="post-nav" aria-label="More posts"><a class="prev" href="/blog/why-tech-events-are-10x-better-than-watching-movies-on-weekends/"><small>← Newer</small><span>Why Tech Events Are 10x Better Than Watching Movies on Weekends</span></a><a class="next" href="/blog/my-macbook-m2-journey-why-i-upgraded-and-3-must-have-accessories/"><small>Older →</small><span>My MacBook M2 Journey: Why I Upgraded &amp; 3 Must-Have Accessories</span></a></nav>
+      </footer>
+    </article>
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <p><b>© <span id="current-year">2026</span> Neeraj Kumar Meena</b></p>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="https://github.com/neeraj542" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/kumar-neeraj-2019/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="/blog/index.xml">RSS</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <div class="profile-image-circle"><img src="/assets/images/neeraj.jpg" alt="Neeraj Kumar Meena" id="profile-img" width="180" height="180"></div>
+      <h1 class="profile-name">Neeraj Kumar Meena</h1>
+      <p class="profile-title">AI Engineer</p>
+      <p class="profile-email"><a href="mailto:meenaneeraj631@gmail.com">meenaneeraj631@gmail.com</a></p>
+      <p class="profile-location-full"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Hyderabad, India</p>
+      <hr class="sidebar-divider">
+      <div class="sidebar-social">
+        <a href="https://github.com/neeraj542" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.05.14 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://www.linkedin.com/in/kumar-neeraj-2019/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.23 0z"/></svg></a>
+        <a href="https://x.com/51xneeraj" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X" title="X"><svg viewBox="0 0 24 24" fill="currentcolor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.17l-5.21-6.82-5.97 6.82H2.16l7.73-8.84L1.25 2.25h6.33l4.71 6.23 5.95-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+        <a href="/blog/index.xml" class="social-icon" aria-label="RSS feed" title="RSS feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+      </div>
+    </div>
+  </aside>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>
