@@ -2478,3 +2478,94 @@ a.tag:hover {
         transition: none !important;
     }
 }
+
+.cv-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+}
+
+.org-logo {
+    width: 26px;
+    height: 26px;
+    max-width: 26px;
+    object-fit: contain;
+    flex: none;
+    display: block;
+}
+
+.org-logo.wordmark {
+    width: auto;
+    height: 22px;
+    max-width: 108px;
+}
+
+.logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
+.cv-item h3 {
+    align-items: center;
+}
+
+.cv-item ul.org-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.org-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.org-list li .org-logo {
+    margin-top: 0.15rem;
+}
+
+.logo-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1.25rem;
+    margin: 0.15rem 0 1.35rem;
+}
+
+.logo-row a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.logo-row .org-logo {
+    width: 32px;
+    height: 32px;
+    max-width: 32px;
+}
+
+.logo-row .org-logo.wordmark {
+    width: auto;
+    height: 26px;
+    max-width: 124px;
+}
+
+.talk-event {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.talk-event .org-logo {
+    width: 18px;
+    height: 18px;
+    max-width: 18px;
+}
