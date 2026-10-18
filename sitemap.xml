@@ -9,6 +9,7 @@
 <url><loc>/talks/</loc></url>
 <url><loc>/no-tech/</loc></url>
 <url><loc>/tags/</loc></url>
+<url><loc>/blog/i-wanted-to-see-what-a-browser-tab-just-did-apm-could-not/</loc></url>
 <url><loc>/blog/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop/</loc></url>
 <url><loc>/blog/why-default-container-networks-fail-in-production-and-how-to-fix-it/</loc></url>
 <url><loc>/blog/why-tech-events-are-10x-better-than-watching-movies-on-weekends/</loc></url>
@@ -21,6 +22,11 @@
 <url><loc>/blog/chatgpt-tutorial-made-easy-a-beginners-guide-to-conversational-ai/</loc></url>
 <url><loc>/blog/from-beginner-to-pro-smart-ways-to-start-your-web-development-journey-and-land-a-job-quickly/</loc></url>
 <url><loc>/blog/whoaa-top-3-biggest-community-platforms-for-developers-in-2023/</loc></url>
+<url><loc>/tags/platform-engineering/</loc></url>
+<url><loc>/tags/devops/</loc></url>
+<url><loc>/tags/security/</loc></url>
+<url><loc>/tags/information-security/</loc></url>
+<url><loc>/tags/observability/</loc></url>
 <url><loc>/tags/networking/</loc></url>
 <url><loc>/tags/docker/</loc></url>
 <url><loc>/tags/nginx/</loc></url>

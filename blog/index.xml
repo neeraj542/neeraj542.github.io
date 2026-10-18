@@ -5,6 +5,12 @@
     <description>Notes on systems, cloud native tooling, and things I build to understand them.</description>
     <link>/blog/</link>
     <item>
+      <title>I Wanted to See What a Browser Tab Just Did. APM Could Not.</title>
+      <link>/blog/i-wanted-to-see-what-a-browser-tab-just-did-apm-could-not/</link>
+      <pubDate>Sun, 18 Oct 2026 12:14:00 +0000</pubDate>
+      <category>Medium</category>
+      <description>Backend traces stop at the server. The tab is the other half of the request, and it is where cookies, storage, and third-party hosts actually live. I built a small local…</description>
+    </item><item>
       <title>I kept nodding along in CDN meetings. So I built a tiny one on my laptop.</title>
       <link>/blog/i-kept-nodding-along-in-cdn-meetings-so-i-built-a-tiny-one-on-my-laptop/</link>
       <pubDate>Wed, 22 Jul 2026 04:56:55 +0000</pubDate>
